@@ -1,0 +1,16 @@
+# Используем лемму Штольца и оцениваем последовательность 1 / [n!^(1/n) - (n-1)!^(1/(n-1))]
+from math import log as ln
+from math import exp
+n = 1
+sln2 = 0
+
+for i in range(10**7-1):
+    sln = sln2
+    n += 1
+    sln2 += ln(n)
+
+    if n%(10**6) == 0:
+        print(1/(exp(sln2/n) - exp(sln/(n-1))), n)
+
+print()
+print(1/(exp(sln2/n) - exp(sln/(n-1))), n)
